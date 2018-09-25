@@ -10,14 +10,10 @@ export default class App extends Component {
     }
     this.updateNum = this.updateNum.bind(this);
   }
-  updateNum( newNum ) {
-    this.setState({ num: newNum })
-  }
   render() {
     return (
       <DataContext.Provider value={{
-        num: this.state.num,
-        updateNum: this.updateNum
+        num: this.state.num
       }}>
       <div className="App">
         <h3> Parent Component </h3>
@@ -43,7 +39,6 @@ function InnerComponent (props) {
           <p>
             Your number is {context.num}.
           </p>
-          <input type="number" onChange={(e)=>context.updateNum(e.target.value)}></input>
         </div>
       )}
     </DataContext.Consumer>
